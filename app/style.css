@@ -1,0 +1,137 @@
+/* Statistik Indonesia — deep teal, warm amber, cream paper, serif display type. */
+:root {
+  --teal: #0b3b3e;
+  --teal-deep: #072729;
+  --teal-mid: #12555a;
+  --amber: #e8a33d;
+  --amber-soft: #f6c453;
+  --cream: #f7f3ea;
+  --paper: #fffdf6;
+  --ink: #1d2a2a;
+  --muted: #5c6b6a;
+  --line: #d8cfba;
+  --good: #1e7a4c;
+  --bad: #b3402a;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.55;
+}
+a { color: var(--teal-mid); }
+.masthead { background: var(--teal); color: #f2ede0; }
+.masthead-inner { max-width: 1080px; margin: 0 auto; padding: 28px 20px 18px; }
+.kicker {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber-soft);
+}
+.masthead h1 { margin: 0; font-family: var(--serif); font-size: 44px; line-height: 0.95; letter-spacing: 0.01em; }
+.masthead h1 a { color: #f2ede0; text-decoration: none; }
+.tagline { margin: 12px 0 4px; max-width: 640px; color: #cfe0d8; font-size: 15px; }
+.mainnav {
+  background: var(--teal-deep);
+  display: flex; flex-wrap: wrap;
+  max-width: 1080px; margin: 0 auto;
+  padding: 0 12px;
+}
+.mainnav a {
+  color: #e9e2cf; text-decoration: none;
+  padding: 11px 12px; font-size: 14px; font-weight: 600;
+  border-bottom: 3px solid transparent;
+}
+.mainnav a:hover { color: #fff; border-bottom-color: var(--amber); }
+.mainnav a.active { color: var(--amber-soft); border-bottom-color: var(--amber); }
+main { max-width: 1080px; margin: 0 auto; padding: 24px 20px 40px; }
+footer {
+  max-width: 1080px; margin: 0 auto; padding: 0 20px 36px;
+  color: var(--muted); font-size: 13px;
+  border-top: 1px solid var(--line); padding-top: 16px;
+}
+h2 { font-family: var(--serif); font-size: 30px; margin: 4px 0 6px; color: var(--teal); }
+h3 { font-family: var(--serif); font-size: 20px; margin: 0 0 8px; color: var(--teal); }
+.section-intro { max-width: 680px; color: #33413f; margin: 0 0 20px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 18px 0; }
+.card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-top: 4px solid var(--teal); border-radius: 6px;
+  padding: 14px 16px;
+}
+.card.amber { border-top-color: var(--amber); }
+.card .label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.card .value { font-family: var(--serif); font-size: 32px; line-height: 1.05; color: var(--teal); margin: 0; }
+.card .unit { font-size: 14px; color: var(--muted); }
+.card .delta { font-size: 13px; margin: 6px 0 0; }
+.card .delta .up { color: var(--good); font-weight: 700; }
+.card .delta .down { color: var(--bad); font-weight: 700; }
+.card .source { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.panel {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 6px; padding: 18px; margin: 18px 0;
+}
+.panel h3 { margin-top: 0; }
+.chart-wrap { overflow-x: auto; }
+canvas.chart { display: block; max-width: 100%; height: auto; }
+.range { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.range button, .search input, .metric-toggle button {
+  font-family: var(--sans); font-size: 14px;
+}
+.range button, .metric-toggle button {
+  background: #fff; border: 1px solid var(--teal-mid); color: var(--teal-mid);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer; font-weight: 600;
+}
+.range button[aria-pressed="true"], .metric-toggle button[aria-pressed="true"] {
+  background: var(--teal); color: #fff;
+}
+.search { margin: 16px 0 4px; }
+.search label { display: block; margin-bottom: 6px; font-weight: 600; }
+.search input {
+  width: 100%; max-width: 520px; padding: 11px 14px;
+  border: 1px solid var(--teal-mid); border-radius: 6px; background: #fff;
+  font-size: 15px;
+}
+.search-results { list-style: none; padding: 0; margin: 8px 0 0; }
+.search-results li {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 6px;
+  padding: 10px 14px; margin-bottom: 8px;
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.search-results .fig { font-family: var(--serif); font-size: 18px; color: var(--teal); }
+.search-results .src { font-size: 12px; color: var(--muted); }
+table { width: 100%; border-collapse: collapse; background: var(--paper); font-size: 15px; }
+th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--line); }
+th:first-child, td:first-child { text-align: left; }
+th { background: var(--teal); color: #f2ede0; font-size: 13px; letter-spacing: 0.04em; }
+tr.hl td { background: #fdf3d7; font-weight: 700; }
+.note { font-size: 13px; color: var(--muted); }
+.bignum-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+  margin: 18px 0;
+}
+.bignum-strip div { background: var(--paper); padding: 12px 14px; }
+.bignum-strip .n { font-family: var(--serif); font-size: 26px; color: var(--teal); }
+.bignum-strip .l { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 18px 0; }
+.link-grid a {
+  display: block; background: var(--paper); border: 1px solid var(--line); border-radius: 6px;
+  padding: 14px 16px; text-decoration: none; color: var(--ink);
+}
+.link-grid a:hover { border-color: var(--amber); }
+.link-grid b { color: var(--teal); font-family: var(--serif); font-size: 18px; display: block; }
+.link-grid span { font-size: 13px; color: var(--muted); }
+@media (max-width: 640px) {
+  .masthead h1 { font-size: 34px; }
+  h2 { font-size: 25px; }
+  .card .value { font-size: 27px; }
+  .mainnav a { padding: 9px 9px; font-size: 13px; }
+  main { padding: 18px 14px 32px; }
+}
